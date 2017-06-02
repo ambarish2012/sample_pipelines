@@ -1,51 +1,13 @@
 resources:
   - name: nginx-image-serialCheck
     type: image
-    integration: "trriplejay docker hub"
+    integration: "dr-docker"
     pointer:
-      sourceName: "library/nginx"
+      sourceName: "ambarish2012/release-push-docker-hub"
     seed:
-      versionName: stable
-
-  - name: nginx-params-serialCheck
-    type: params
-    version:
-      params:
-        mode: dev
-        api_url: localhost:50000
-
+      versionName: master.4
+ 
   - name: nginx-opts-serialCheck
     type: dockerOptions
     version:
       memory: 500
-
-
-  - name: simple-image-serialCheck
-    type: image
-    integration: "trriplejay docker hub"
-    pointer:
-      sourceName: "trriplejay/simpleserver"
-    seed:
-      versionName: master.58
-
-  - name: simple-params-serialCheck
-    type: params
-    version:
-      params:
-        FOO: "test foo"
-        BAR: "test bar"
-        MODE: "dev"
-        SELF_URL: "http://localhost:8888"
-
-  - name: simple-opts-serialCheck
-    type: dockerOptions
-    version:
-      memory: 120
-      cpuShares: 18
-      portMappings:
-        - "80:8888"
-
-  - name: simpleReplicas-serialCheck
-    type: replicas
-    version:
-      count: 2
