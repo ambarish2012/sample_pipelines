@@ -1,22 +1,10 @@
 jobs:
-  - name: simple-mani-serialCheck
-    type: manifest
-    flags:
-      - serialCheck
-    steps:
-      - IN: stagingTrigger-serialCheck
-      - IN: simple-params-serialCheck
-      - IN: simple-image-serialCheck
-      - IN: simple-opts-serialCheck
-
   - name: nginx-mani-serialCheck
     type: manifest
     flags:
       - serialCheck
     steps:
-      - IN: stagingTrigger-serialCheck
       - IN: nginx-image-serialCheck
-      - IN: nginx-params-serialCheck
       - IN: nginx-opts-serialCheck
 
   - name: runSh1-serialCheck
@@ -33,7 +21,6 @@ jobs:
     flags:
       - serialCheck
     steps:
-      - IN: runSh2Trigger-serialCheck
       - TASK:
         - script: pwd
         - script: sleep 120
